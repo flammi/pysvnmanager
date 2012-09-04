@@ -12,7 +12,11 @@ class MainWindow:
 		item = gtk.ListItem("New Item")
 		item.show()
 		self.repoList.append_items([item])
-		print "test"
+		print "Adding Item"
+	def del_clicked(self, widget, event,data=None):
+		item.show()
+		self.repoList.
+		print "Removing Item"
 	def __init__(self):
 		#Fenster erstellen
 		self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
@@ -21,7 +25,7 @@ class MainWindow:
 		self.window.set_border_width(10)
 
 		#VBox erstellen
-		vbox = gtk.VBox(spacing=5)
+		vbox = gtk.HBox(spacing=5)
 		
 		#Liste mit Repos erstellen
 		self.repoList = gtk.List()
@@ -34,11 +38,16 @@ class MainWindow:
 		vbox.add(self.repoList)
 
 		#Controls erstellen
-		control_box = gtk.HBox()
+		control_box = gtk.VBox()
 		add_button = gtk.Button("Add")
 		add_button.show()
 		add_button.connect("button-press-event", self.add_clicked, None)
 		control_box.add(add_button)
+		control_box.show()
+		remove_button = gtk.Button("Del")
+		remove_button.show()
+		remove_button.connect("button-press-event", self.del_clicked, None)
+		control_box.add(remove_button)
 		control_box.show()
 		vbox.add(control_box)
 		vbox.show()
